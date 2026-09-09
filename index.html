@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Web Folk | Web Design Studio</title>
+  <title>Web Folk | Web Design Studio &amp; B2B Print Shop</title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lobster&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Font Awesome -->
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <!-- Stylesheet -->
@@ -21,13 +21,22 @@
 
   <!-- Top Sticky Navigation -->
   <header>
-    <nav>
-      <a href="#home">home</a>
-      <a href="#portfolio">work &amp; clients</a>
-      <a href="#team">meet the folks</a>
-      <a href="#about">about</a>
-      <a href="#contact" onclick="openContactModal(event)">contact</a>
-    </nav>
+    <div class="header-inner">
+      <nav>
+        <a href="#home">home</a>
+        <a href="#portfolio">work &amp; clients</a>
+        <a href="#shop" class="nav-highlight">shop</a>
+        <a href="#team">meet the folks</a>
+        <a href="#about">about</a>
+        <a href="#contact" onclick="openContactModal(event)">contact</a>
+      </nav>
+
+      <!-- Cart Button in Header (Wix Style) -->
+      <button class="cart-trigger" onclick="toggleCartDrawer()" aria-label="Open Shopping Cart">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-badge" id="cart-badge">0</span>
+      </button>
+    </div>
   </header>
 
   <main id="home">
@@ -134,6 +143,42 @@
       </a>
     </section>
 
+    <!-- SHOP / STORE SECTION (SIMULAÇÃO COMPLETA WIX STORES) -->
+    <section class="shop-section" id="shop">
+      <div class="shop-container">
+        <!-- Shop Ribbon Header -->
+        <div class="shop-ribbon-wrapper">
+          <a class="shop-label" href="#shop">
+            <h2>shop / all products</h2>
+          </a>
+        </div>
+
+        <div class="shop-header-bar">
+          <div class="shop-filter-tabs">
+            <button class="shop-tab active" onclick="filterShop('all', this)">Todos</button>
+            <button class="shop-tab" onclick="filterShop('Mais vendido', this)">Mais Vendidos</button>
+            <button class="shop-tab" onclick="filterShop('Oferta', this)">Ofertas</button>
+            <button class="shop-tab" onclick="filterShop('Novo', this)">Novidades</button>
+          </div>
+
+          <div class="shop-sorting">
+            <label for="shop-sort">Ordenar por:</label>
+            <select id="shop-sort" onchange="sortShop(this.value)">
+              <option value="default">Recomendados</option>
+              <option value="price-asc">Preço: Menor para Maior</option>
+              <option value="price-desc">Preço: Maior para Menor</option>
+              <option value="name-asc">Nome: A-Z</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="products-grid" id="products-grid">
+          <!-- Rendered via JavaScript -->
+        </div>
+      </div>
+    </section>
+
     <!-- Meet The Folks / Team Section -->
     <section class="team row" id="team">
       <a class="label" href="#team">
@@ -216,6 +261,132 @@
   <footer>
     &copy; 2026 by <span>web folk. proudly </span>created with <a href="https://www.wix.com" target="_blank">wix.com</a>
   </footer>
+
+  <!-- SIDE CART DRAWER (WIX STYLE) -->
+  <div class="cart-drawer-overlay" id="cart-overlay" onclick="toggleCartDrawer()"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3>Meu Carrinho <span id="cart-drawer-count">(0)</span></h3>
+      <button class="cart-drawer-close" onclick="toggleCartDrawer()">&times;</button>
+    </div>
+
+    <div class="cart-items-container" id="cart-items-container">
+      <!-- Inserido dinamicamente via script.js -->
+    </div>
+
+    <div class="cart-drawer-footer" id="cart-drawer-footer">
+      <div class="cart-promo-box">
+        <input type="text" id="cart-coupon-input" placeholder="Código promocional (ex: B2B10)">
+        <button onclick="applyCoupon()">Aplicar</button>
+      </div>
+
+      <div class="cart-subtotal-row">
+        <span>Subtotal</span>
+        <strong id="cart-subtotal">R$ 0,00</strong>
+      </div>
+      <div class="cart-discount-row" id="cart-discount-row" style="display:none;">
+        <span>Desconto (10%)</span>
+        <strong id="cart-discount" style="color: #FF2D49;">- R$ 0,00</strong>
+      </div>
+      <div class="cart-total-row">
+        <span>Total Estimado</span>
+        <strong id="cart-total">R$ 0,00</strong>
+      </div>
+
+      <button class="btn-checkout" onclick="openCheckoutModal()">
+        FINALIZAR COMPRA <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- SIMULATED CHECKOUT MODAL -->
+  <div class="modal-overlay" id="checkout-modal">
+    <div class="modal-card checkout-card">
+      <button class="modal-close" onclick="closeCheckoutModal()">&times;</button>
+      
+      <div id="checkout-step-1">
+        <div class="modal-header">
+          <h3>Finalizar Pedido</h3>
+          <p>Confirme os dados para envio e pagamento simulado</p>
+        </div>
+        <form class="contact-form" onsubmit="processCheckout(event)">
+          <div class="form-group">
+            <input type="text" placeholder="Nome Completo" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="E-mail para Confirmação" required>
+          </div>
+          <div class="form-group-row">
+            <input type="text" placeholder="CEP" required style="flex: 1;">
+            <input type="text" placeholder="Cidade/UF" required style="flex: 2;">
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Endereço e Número" required>
+          </div>
+
+          <div class="payment-selection">
+            <label class="payment-option">
+              <input type="radio" name="payment_method" value="pix" checked>
+              <span><i class="fa-brands fa-pix"></i> Pix (Aprovação Imediata)</span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment_method" value="card">
+              <span><i class="fa-regular fa-credit-card"></i> Cartão de Crédito</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn-submit mt-3">Confirmar Pagamento Simulado</button>
+        </form>
+      </div>
+
+      <div id="checkout-step-success" style="display:none;" class="text-center">
+        <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+        <h3 style="font: normal 1.8em 'Libre Baskerville', serif; color: #231B3B; margin-bottom: 8px;">Pedido Concluído!</h3>
+        <p style="color: #666; margin-bottom: 20px;">Seu pedido simulado foi registrado com sucesso.</p>
+        
+        <div class="order-summary-box">
+          <p><strong>Número do Pedido:</strong> <span id="success-order-id">#WIX-84920</span></p>
+          <p><strong>Total Pago:</strong> <span id="success-order-total">R$ 0,00</span></p>
+          <p><strong>Status:</strong> <span style="color: #25D366; font-weight: bold;">Aprovado</span></p>
+        </div>
+
+        <button class="btn-submit mt-3" onclick="finishCheckoutFlow()">Continuar Comprando</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK VIEW PRODUCT MODAL -->
+  <div class="modal-overlay" id="product-modal">
+    <div class="modal-card product-detail-card">
+      <button class="modal-close" onclick="closeProductModal()">&times;</button>
+      <div class="product-modal-flex">
+        <div class="prod-modal-img">
+          <img id="prod-modal-img" src="" alt="">
+        </div>
+        <div class="prod-modal-info">
+          <span class="prod-modal-ribbon" id="prod-modal-ribbon"></span>
+          <h2 id="prod-modal-title"></h2>
+          <div class="prod-modal-price" id="prod-modal-price"></div>
+          <p class="prod-modal-desc" id="prod-modal-desc">
+            Produto de altíssima qualidade da linha exclusiva. Feito com materiais sustentáveis e acabamento de padrão internacional.
+          </p>
+
+          <div class="prod-qty-row">
+            <label>Quantidade:</label>
+            <div class="qty-stepper">
+              <button onclick="changeModalQty(-1)">-</button>
+              <input type="number" id="modal-qty" value="1" min="1" readonly>
+              <button onclick="changeModalQty(1)">+</button>
+            </div>
+          </div>
+
+          <button class="btn-add-cart-modal" onclick="addModalProductToCart()">
+            <i class="fa-solid fa-bag-shopping"></i> Adicionar ao Carrinho
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Interactive Contact Modal -->
   <div class="modal-overlay" id="contact-modal">
