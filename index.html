@@ -1,491 +1,256 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumière Atelier | Salão de Beleza & Estética Feminina</title>
-    <meta name="description" content="Especialistas exclusivas em Mechas, Penteados, Podologia, Nail Design, Micropigmentação e Tratamentos Capilares Keune & Kérastase. Agende seu horário online.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- CSS Estilo -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Web Folk | Web Design Studio</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lobster&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Background Decorative Organic Shapes -->
-    <div class="bg-shape shape-1"></div>
-    <div class="bg-shape shape-2"></div>
+  <!-- Top Sticky Navigation -->
+  <header>
+    <nav>
+      <a href="#home">home</a>
+      <a href="#portfolio">work &amp; clients</a>
+      <a href="#team">meet the folks</a>
+      <a href="#about">about</a>
+      <a href="#contact" onclick="openContactModal(event)">contact</a>
+    </nav>
+  </header>
 
-    <!-- Header & Navigation -->
-    <header class="header" id="header">
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <span class="logo-subtitle"><i class="fa-solid fa-sparkles"></i> INSTITUTO DE BELEZA</span>
-                <span class="logo-title">LUMIÈRE</span>
-            </a>
-            
-            <nav class="nav-menu" id="nav-menu">
-                <ul class="nav-list">
-                    <li><a href="#inicio" class="nav-link active">Início</a></li>
-                    <li><a href="#servicos" class="nav-link">Nossos Serviços</a></li>
-                    <li><a href="#promocoes" class="nav-link">Tratamentos & Promoções</a></li>
-                    <li><a href="#estetica" class="nav-link">Estética & Cílios</a></li>
-                    <li><a href="#equipe" class="nav-link">Especialistas</a></li>
-                    <li><a href="#quiz" class="nav-link">Quiz Diagnóstico</a></li>
-                </ul>
-            </nav>
-            
-            <div class="header-actions">
-                <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." target="_blank" class="btn-whatsapp-circle" title="WhatsApp Direct">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
-                <button class="btn btn-pink-pill" id="open-booking-modal">
-                    <i class="fa-regular fa-calendar-check"></i> AGENDAR HORÁRIO
-                </button>
-                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir Menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
+  <main id="home">
+    <!-- Hero Banner -->
+    <section class="banner">
+      <h1>
+        <span>web </span><span>folk</span>
+      </h1>
+      <h2>web design studio</h2>
+      <p>we dream, explore, create and craft progressive digital experiences</p>
+      <span></span>
+      <span></span>
+      <span></span>
+    </section>
+
+    <!-- Work & Clients Portfolio Section -->
+    <section class="portfolio row" id="portfolio">
+      <a class="label" href="#portfolio">
+        <h2>work &amp; clients</h2>
+      </a>
+      
+      <a href="javascript:void(0)" class="card col-phone-6 col-pad-4 col-pc-3" onclick="openImagePreview('images/p1.jpg', 'Brand Identity & Strategy')">
+        <img src="images/p1.jpg" alt="Work 1" loading="lazy">
+        <div>
+          <h3>i'm an image title.</h3>
         </div>
-    </header>
+      </a>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Banner Clean com Elementos Gráficos -->
-        <section class="hero-clean" id="inicio">
-            <div class="container hero-clean-grid">
-                <div class="hero-clean-text">
-                    <div class="tag-badge-pill mb-3">
-                        <i class="fa-solid fa-crown text-terracota"></i> ELEITO O MELHOR ESPAÇO FEMININO
-                    </div>
-                    <h1 class="hero-clean-title">Realce a sua beleza natural com a perfeição que você merece.</h1>
-                    <p class="hero-clean-desc">
-                        Ambiente acolhedor e atemporal com uma equipe de especialistas formadas nas melhores academias mundiais. Mechas, Penteados, Estética e Cuidado Integral.
-                    </p>
-
-                    <div class="hero-clean-buttons">
-                        <button class="btn btn-pink-pill btn-lg" onclick="openBookingWizard()">
-                            <i class="fa-solid fa-sparkles"></i> AGENDAR ATENDIMENTO VIP
-                        </button>
-                        <a href="#quiz" class="btn btn-outline-terracota btn-lg">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i> DIAGNÓSTICO CAPILAR
-                        </a>
-                    </div>
-
-                    <!-- Mini Stat Cards Decorativas -->
-                    <div class="hero-stats-row mt-4">
-                        <div class="mini-stat">
-                            <strong>4.9 ★</strong>
-                            <span>Avaliação Google</span>
-                        </div>
-                        <div class="mini-stat">
-                            <strong>+14 Anos</strong>
-                            <span>Tradição & Excelência</span>
-                        </div>
-                        <div class="mini-stat">
-                            <strong>100%</strong>
-                            <span>Linhas Importadas</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hero-clean-image">
-                    <div class="image-wrapper-decorative">
-                        <img src="images/mechas.jpg" alt="Transformação Mechas Lumière" class="img-rounded-lg">
-                        <div class="floating-badge">
-                            <i class="fa-solid fa-heart text-terracota"></i>
-                            <span>Especialistas em Mechas</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO: NOSSOS SERVIÇOS (Grid de Cards com Fotos Únicas e Overlay de Especialista) -->
-        <section class="nossos-servicos section bg-white" id="servicos">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="tag-terracota"><i class="fa-solid fa-gem"></i> ESPECIALIDADES EXCLUSIVAS</span>
-                    <h2 class="section-title-serif">Nossos Serviços</h2>
-                    <p class="section-subtitle-clean">Confira nossas áreas exclusivas de atendimento para realçar sua autoestima.</p>
-                </div>
-
-                <div class="portrait-services-grid">
-                    <!-- Card 1: Mechas -->
-                    <div class="portrait-card" onclick="quickBook('Mechas & Colorimetria')">
-                        <img src="images/mechas.jpg" alt="Mechas e Colorimetria" loading="lazy">
-                        <div class="portrait-overlay">
-                            <h3 class="portrait-title">Mechas & Loiros</h3>
-                            <span class="portrait-spec"><i class="fa-solid fa-star text-gold"></i> Especialista Mayra Becker</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 2: Penteados -->
-                    <div class="portrait-card" onclick="quickBook('Penteados & Eventos')">
-                        <img src="images/penteados.jpg" alt="Penteados de Gala" loading="lazy">
-                        <div class="portrait-overlay">
-                            <h3 class="portrait-title">Penteados & Gala</h3>
-                            <span class="portrait-spec"><i class="fa-solid fa-star text-gold"></i> Especialista Luciana Quirino</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 3: Podologia -->
-                    <div class="portrait-card" onclick="quickBook('Podologia Clínica')">
-                        <img src="images/washbasin.jpg" alt="Podologia Clínica" loading="lazy">
-                        <div class="portrait-overlay">
-                            <h3 class="portrait-title">Podologia Clínica</h3>
-                            <span class="portrait-spec"><i class="fa-solid fa-star text-gold"></i> Especialista Aline Garcia</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 4: Nail Designer -->
-                    <div class="portrait-card" onclick="quickBook('Nail Designer & Alongamento')">
-                        <img src="images/nails.jpg" alt="Nail Designer" loading="lazy">
-                        <div class="portrait-overlay">
-                            <h3 class="portrait-title">Nail Designer</h3>
-                            <span class="portrait-spec"><i class="fa-solid fa-star text-gold"></i> Especialista Cindy Ramesar</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 5: Estética Facial -->
-                    <div class="portrait-card" onclick="quickBook('Micropigmentação & Cílios')">
-                        <img src="images/eyebrows.jpg" alt="Harmonização & Sobrancelhas" loading="lazy">
-                        <div class="portrait-overlay">
-                            <h3 class="portrait-title">Harmonização Facial</h3>
-                            <span class="portrait-spec"><i class="fa-solid fa-star text-gold"></i> Equipe Estética VIP</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 6: Manicure & Pedicure -->
-                    <div class="portrait-card" onclick="quickBook('Manicure Spa')">
-                        <img src="images/lashes.jpg" alt="Manicure e Pedicure Spa" loading="lazy">
-                        <div class="portrait-overlay">
-                            <h3 class="portrait-title">Cílios & Olhar</h3>
-                            <span class="portrait-spec"><i class="fa-solid fa-star text-gold"></i> Especialistas em Lash</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO SPLIT: TRATAMENTOS E PROMOÇÃO (Fiel ao segundo print) -->
-        <section class="promo-split-section" id="promocoes">
-            <div class="promo-split-grid">
-                <!-- Lado Esquerdo: Tratamentos Completos -->
-                <div class="promo-left-card">
-                    <div class="promo-left-overlay"></div>
-                    <div class="promo-left-content text-center">
-                        <span class="tag-badge-pill-white mb-2"><i class="fa-solid fa-droplet"></i> RITUAIS INTERNACIONAIS</span>
-                        <h2 class="promo-title-white">TRATAMENTOS COMPLETOS</h2>
-                        <p class="promo-text-white">Aqui você realiza diversos tipos de tratamentos com uma equipe altamente qualificada.</p>
-                        <button class="btn btn-outline-white-pill" onclick="openBookingWizard('Tratamento Keune Spa')">
-                            SAIBA MAIS
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Lado Direito: Spa Keune + Escova Grátis (Fundo Terracota Vibrant) -->
-                <div class="promo-right-card">
-                    <div class="promo-right-content text-center">
-                        <span class="tag-badge-pill-gold mb-2"><i class="fa-solid fa-gift"></i> PROMOÇÃO EXCLUSIVA</span>
-                        <h2 class="promo-title-big">SPA KEUNE + <br>ESCOVA GRÁTIS</h2>
-                        <p class="promo-sub-white"><strong>uma</strong> máscara Keune de 200ml de presente</p>
-                        
-                        <div class="promo-buttons-flex">
-                            <button class="btn btn-outline-pill-white" onclick="openBookingWizard('Spa Keune 796')">AGENDAMENTO 796</button>
-                            <button class="btn btn-outline-pill-white" onclick="openBookingWizard('Spa Keune 840')">AGENDAMENTO 840</button>
-                        </div>
-                        
-                        <small class="promo-disclaimer">* Promoção por tempo limitado. Consulte máscaras disponíveis na recepção.</small>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO: CARDS BRANCOS COM NÚMERO PÍLULA (Fundo Rosa Seco / Blush `#F7EBE8`) -->
-        <section class="num-services-section section bg-blush" id="estetica">
-            <div class="container">
-                <div class="section-header text-center mb-5">
-                    <span class="tag-terracota"><i class="fa-solid fa-eye"></i> HARMONIA & OLHAR</span>
-                    <h2 class="section-title-serif">Procedimentos Estéticos & Olhar</h2>
-                    <p class="section-subtitle-clean">Técnicas exclusivas com máxima precisão e naturalidade.</p>
-                </div>
-
-                <div class="num-cards-grid">
-                    <!-- Card 01 -->
-                    <div class="num-card">
-                        <div class="num-card-img">
-                            <span class="num-pill-terracota">01</span>
-                            <img src="images/eyebrows.jpg" alt="Micropigmentação Sobrancelhas">
-                        </div>
-                        <div class="num-card-body">
-                            <h3>Micropigmentação Sobrancelhas</h3>
-                            <p>A micropigmentação proporciona um preenchimento natural de suas falhas com técnica de fios ultra finos.</p>
-                            <button class="btn btn-pink-pill w-100" onclick="quickBook('Micropigmentação Sobrancelhas')">AGENDAR</button>
-                        </div>
-                    </div>
-
-                    <!-- Card 02 -->
-                    <div class="num-card">
-                        <div class="num-card-img">
-                            <span class="num-pill-terracota">02</span>
-                            <img src="images/lashes.jpg" alt="Extensão de Cílios">
-                        </div>
-                        <div class="num-card-body">
-                            <h3>Extensão de Cílios</h3>
-                            <p>A extensão é feita em cada cílio da cliente. Experimente ter um olhar radiante e pronto para o seu dia a dia!</p>
-                            <button class="btn btn-pink-pill w-100" onclick="quickBook('Extensão de Cílios')">AGENDAR</button>
-                        </div>
-                    </div>
-
-                    <!-- Card 03 -->
-                    <div class="num-card">
-                        <div class="num-card-img">
-                            <span class="num-pill-terracota">03</span>
-                            <img src="images/brunette.jpg" alt="Micropigmentação nos Olhos">
-                        </div>
-                        <div class="num-card-body">
-                            <h3>Micropigmentação nos Olhos</h3>
-                            <p>Delineado proporciona um olhar delicado e pronto para a sua rotina sem necessidade de maquiagem diária.</p>
-                            <button class="btn btn-pink-pill w-100" onclick="quickBook('Micropigmentação nos Olhos')">AGENDAR</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO: ESPECIALISTAS (Fundo Nude Quente `#F3EBE1` com FOTOS 100% ÚNICAS!) -->
-        <section class="specialists-section section bg-sandy-nude" id="equipe">
-            <div class="container">
-                <div class="section-header text-center mb-5">
-                    <span class="tag-terracota"><i class="fa-solid fa-award"></i> CORPO TÉCNICO RENOMADO</span>
-                    <h2 class="section-title-serif">Conheça Nossas Especialistas</h2>
-                    <p class="section-subtitle-clean">Profissionais com biografia e formação internacional dedicadas ao seu bem-estar.</p>
-                </div>
-
-                <div class="specialists-list">
-                    <!-- Specialist 1: Mayra Becker (FOTO DEDICADA) -->
-                    <div class="specialist-item">
-                        <div class="specialist-img-box">
-                            <img src="images/mayra.jpg" alt="Mayra Becker - Mechas e Colorimetria">
-                        </div>
-                        <div class="specialist-info">
-                            <span class="spec-tag">MAYRA BECKER</span>
-                            <h3 class="spec-name">Mechas e Colorimetria</h3>
-                            <p class="spec-bio">Especialista com mais de 14 anos de experiência e formação nas melhores academias do mundo. Mayra é a mente por trás das transformações mais desejadas da região.</p>
-                            <button class="btn btn-outline-terracota btn-sm mt-3" onclick="bookWithStylist('Mayra Becker')">Agendar com Mayra</button>
-                        </div>
-                    </div>
-
-                    <!-- Specialist 2: Luciana Quirino (FOTO DEDICADA) -->
-                    <div class="specialist-item reverse">
-                        <div class="specialist-info">
-                            <span class="spec-tag">LUCIANA QUIRINO</span>
-                            <h3 class="spec-name">Penteados</h3>
-                            <p class="spec-bio">Mestra na arte de esculpir cabelos, Luciana cria penteados que são verdadeiras joias, garantindo elegância e fixação impecável para os seus momentos mais especiais.</p>
-                            <button class="btn btn-outline-terracota btn-sm mt-3" onclick="bookWithStylist('Luciana Quirino')">Agendar com Luciana</button>
-                        </div>
-                        <div class="specialist-img-box">
-                            <img src="images/luciana.jpg" alt="Luciana Quirino - Penteados">
-                        </div>
-                    </div>
-
-                    <!-- Specialist 3: Aline Garcia (FOTO DEDICADA) -->
-                    <div class="specialist-item">
-                        <div class="specialist-img-box">
-                            <img src="images/aline.jpg" alt="Aline Garcia - Podóloga">
-                        </div>
-                        <div class="specialist-info">
-                            <span class="spec-tag">ALINE GARCIA</span>
-                            <h3 class="spec-name">Podóloga</h3>
-                            <p class="spec-bio">Com foco na saúde e no alívio imediato, Aline realiza tratamentos de podologia clínica com o mais alto rigor técnico, garantindo o bem-estar e o cuidado que seus pés merecem.</p>
-                            <button class="btn btn-outline-terracota btn-sm mt-3" onclick="bookWithStylist('Aline Garcia')">Agendar com Aline</button>
-                        </div>
-                    </div>
-
-                    <!-- Specialist 4: Cindy Ramesar (FOTO DEDICADA) -->
-                    <div class="specialist-item reverse">
-                        <div class="specialist-info">
-                            <span class="spec-tag">CINDY RAMESAR</span>
-                            <h3 class="spec-name">Nail Designer</h3>
-                            <p class="spec-bio">Referência em alongamentos e design de unhas, Cindy alia sofisticação e durabilidade com técnicas exclusivas em gel e esmaltação em gel.</p>
-                            <button class="btn btn-outline-terracota btn-sm mt-3" onclick="bookWithStylist('Cindy Ramesar')">Agendar com Cindy</button>
-                        </div>
-                        <div class="specialist-img-box">
-                            <img src="images/stylist1.jpg" alt="Cindy Ramesar - Nail Designer">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Quiz Capilar Diagnóstico com Novo Card em Gradiente Champagne -->
-        <section class="quiz-clean-section section bg-champagne-soft" id="quiz">
-            <div class="container">
-                <div class="quiz-clean-card text-center">
-                    <span class="tag-terracota"><i class="fa-solid fa-sparkles"></i> DIAGNÓSTICO PERSONALIZADO</span>
-                    <h2 class="section-title-serif mt-2">Descubra o Tratamento Ideal para o seu Cabelo</h2>
-                    <p class="section-subtitle-clean mb-4">Responda 3 perguntas rápidas e receba uma recomendação com cupom de boas-vindas.</p>
-
-                    <div class="quiz-card-box text-left" id="quiz-box">
-                        <div class="quiz-progress-bar-wrap">
-                            <div class="quiz-progress-bar-fill" id="quiz-fill" style="width: 33%;"></div>
-                        </div>
-
-                        <!-- Step 1 -->
-                        <div class="q-step active" id="q-1">
-                            <span class="q-step-num">Passo 1 de 3</span>
-                            <h4 class="q-title">Qual é o seu principal objetivo para o seu cabelo hoje?</h4>
-                            <div class="q-options-list">
-                                <button class="q-btn-opt" onclick="selectQ(1, 'Mechas / Iluminação sem Danos')">
-                                    <i class="fa-solid fa-sun text-terracota"></i> Fazer Mechas ou Iluminação Mantendo a Saúde dos Fios
-                                </button>
-                                <button class="q-btn-opt" onclick="selectQ(1, 'Recuperar Danos & Nutrição')">
-                                    <i class="fa-solid fa-droplet text-terracota"></i> Tratamento Profundo para Fios Fragilizados ou Secos
-                                </button>
-                                <button class="q-btn-opt" onclick="selectQ(1, 'Penteado ou Evento Especial')">
-                                    <i class="fa-solid fa-wand-magic-sparkles text-terracota"></i> Penteado Elegante para Casamento ou Formatura
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Step 2 -->
-                        <div class="q-step" id="q-2">
-                            <span class="q-step-num">Passo 2 de 3</span>
-                            <h4 class="q-title">Fez algum procedimento químico nos últimos 6 meses?</h4>
-                            <div class="q-options-list">
-                                <button class="q-btn-opt" onclick="selectQ(2, 'Sim, descoloração / mechas')">
-                                    <i class="fa-solid fa-check text-terracota"></i> Sim, Descoloração ou Luzes
-                                </button>
-                                <button class="q-btn-opt" onclick="selectQ(2, 'Sim, progressiva / botox')">
-                                    <i class="fa-solid fa-sparkles text-terracota"></i> Sim, Escova Progressiva ou Selagem
-                                </button>
-                                <button class="q-btn-opt" onclick="selectQ(2, 'Não, cabelo natural')">
-                                    <i class="fa-solid fa-leaf text-terracota"></i> Não, Cabelo Virgem ou Sem Química
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Step 3 -->
-                        <div class="q-step" id="q-3">
-                            <span class="q-step-num">Passo 3 de 3</span>
-                            <h4 class="q-title">Qual é a curvatura natural dos seus fios?</h4>
-                            <div class="q-options-list">
-                                <button class="q-btn-opt" onclick="selectQ(3, 'Lisos ou levemente ondulados')">
-                                    <i class="fa-solid fa-wind text-terracota"></i> Lisos ou Ondulados
-                                </button>
-                                <button class="q-btn-opt" onclick="selectQ(3, 'Cacheados ou crespos')">
-                                    <i class="fa-solid fa-ring text-terracota"></i> Cacheados ou Crespos
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Result -->
-                        <div class="q-step text-center" id="q-res">
-                            <i class="fa-solid fa-gem text-terracota fa-2x mb-2"></i>
-                            <h3 id="q-res-title" class="section-title-serif">Recomendado: Mechas & Spa Keune</h3>
-                            <p id="q-res-desc" class="mb-4">Indicamos uma consulta de visagismo com descoloração protegida e nutrição pós-procedimento.</p>
-                            <button class="btn btn-pink-pill btn-lg" onclick="openBookingWizard()">AGENDAR COM CUPOM 10% OFF</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer-clean">
-        <div class="container footer-clean-grid">
-            <div class="footer-brand">
-                <a href="#" class="logo">
-                    <span class="logo-subtitle"><i class="fa-solid fa-sparkles text-terracota"></i> INSTITUTO DE BELEZA</span>
-                    <span class="logo-title">LUMIÈRE</span>
-                </a>
-                <p class="mt-3">Referência em mechas, penteados, estética e podologia com o mais alto rigor técnico e atendimento acolhedor.</p>
-            </div>
-            <div>
-                <h4>Horário de Atendimento</h4>
-                <p>Terça a Sexta: 08h30 às 19h30</p>
-                <p>Sábado: 08h às 19h</p>
-            </div>
-            <div>
-                <h4>Localização & Contato</h4>
-                <p><i class="fa-solid fa-location-dot text-terracota"></i> Av. Principal, 1200 - São Paulo, SP</p>
-                <p><i class="fa-solid fa-phone text-terracota"></i> (11) 3999-8888</p>
-            </div>
+      <a href="javascript:void(0)" class="card col-phone-6 col-pad-4 col-pc-3" onclick="openImagePreview('images/p2.jpg', 'Editorial Magazine Design')">
+        <img src="images/p2.jpg" alt="Work 2" loading="lazy">
+        <div>
+          <h3>i'm an image title.</h3>
         </div>
-        <div class="footer-clean-bottom text-center">
-            <p>&copy; 2026 Lumière Instituto de Beleza. Todos os direitos reservados.</p>
+      </a>
+
+      <a href="javascript:void(0)" class="card col-phone-6 col-pad-4 col-pc-3" onclick="openImagePreview('images/p3.jpg', 'Modern Mobile Experience')">
+        <img src="images/p3.jpg" alt="Work 3" loading="lazy">
+        <div>
+          <h3>i'm an image title.</h3>
         </div>
-    </footer>
+      </a>
 
-    <!-- MODAL AGENDAMENTO WIZARD -->
-    <div class="modal-overlay" id="booking-modal">
-        <div class="booking-modal-card">
-            <button class="modal-close" id="close-booking-modal" aria-label="Fechar">&times;</button>
-            <div class="modal-header-terracota">
-                <h3>Agendamento de Atendimento</h3>
-                <p>Selecione os detalhes da sua visita VIP</p>
-            </div>
-            <div class="modal-body">
-                <!-- Wizard Pages -->
-                <div class="wiz-content active" id="wiz-page-1">
-                    <h4>Escolha o Serviço:</h4>
-                    <div class="form-group mt-3">
-                        <select id="b_service_select" class="form-control">
-                            <option value="Mechas & Colorimetria">Mechas & Colorimetria (Mayra Becker)</option>
-                            <option value="Penteados & Eventos">Penteados & Eventos (Luciana Quirino)</option>
-                            <option value="Podologia Clínica">Podologia Clínica (Aline Garcia)</option>
-                            <option value="Nail Designer & Alongamento">Nail Designer (Cindy Ramesar)</option>
-                            <option value="Micropigmentação Sobrancelhas">Micropigmentação Sobrancelhas</option>
-                            <option value="Extensão de Cílios">Extensão de Cílios</option>
-                            <option value="Tratamento Keune Spa">Tratamento Keune Spa + Escova</option>
-                        </select>
-                    </div>
-                    <div class="modal-footer">
-                        <div></div>
-                        <button class="btn btn-pink-pill" onclick="nextWizStep(2)">Continuar <i class="fa-solid fa-arrow-right"></i></button>
-                    </div>
-                </div>
-
-                <div class="wiz-content" id="wiz-page-2">
-                    <h4>Seus Dados de Contato:</h4>
-                    <div class="form-group mt-2">
-                        <input type="text" id="b_name" class="form-control" placeholder="Seu Nome Completo" required>
-                    </div>
-                    <div class="form-group mt-2">
-                        <input type="tel" id="b_phone" class="form-control" placeholder="Seu WhatsApp" required>
-                    </div>
-                    <div class="form-group mt-2">
-                        <input type="date" id="b_date" class="form-control" required>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-outline-terracota" onclick="nextWizStep(1)">Voltar</button>
-                        <button class="btn btn-pink-pill" onclick="confirmBooking()">Concluir Agendamento <i class="fa-solid fa-check"></i></button>
-                    </div>
-                </div>
-
-                <div class="wiz-content text-center" id="wiz-page-4">
-                    <i class="fa-solid fa-circle-check text-terracota fa-3x mb-3"></i>
-                    <h3>Agendamento Solicitado com Sucesso!</h3>
-                    <p>Entraremos em contato via WhatsApp para confirmar seu horário.</p>
-                    <div class="mt-4">
-                        <button class="btn btn-pink-pill" onclick="closeBookingModal()">Fechar</button>
-                    </div>
-                </div>
-            </div>
+      <a href="javascript:void(0)" class="card col-phone-6 col-pad-4 col-pc-3" onclick="openImagePreview('images/p4.jpg', 'Packaging & Visual Design')">
+        <img src="images/p4.jpg" alt="Work 4" loading="lazy">
+        <div>
+          <h3>i'm an image title.</h3>
         </div>
+      </a>
+
+      <a href="javascript:void(0)" class="card col-phone-6 col-pad-4 col-pc-3" onclick="openImagePreview('images/p5.jpg', 'Creative Direction Project')">
+        <img src="images/p5.jpg" alt="Work 5" loading="lazy">
+        <div>
+          <h3>i'm an image title.</h3>
+        </div>
+      </a>
+
+      <a href="javascript:void(0)" class="card col-phone-6 col-pad-4 col-pc-3" onclick="openImagePreview('images/p6.jpg', 'Print & Typography Collateral')">
+        <img src="images/p6.jpg" alt="Work 6" loading="lazy">
+        <div>
+          <h3>i'm an image title.</h3>
+        </div>
+      </a>
+
+      <a href="javascript:void(0)" class="card col-phone-6 col-pad-4 col-pc-3" onclick="openImagePreview('images/p7.jpg', 'Digital Art & Illustrations')">
+        <img src="images/p7.jpg" alt="Work 7" loading="lazy">
+        <div>
+          <h3>i'm an image title.</h3>
+        </div>
+      </a>
+
+      <a href="javascript:void(0)" class="card col-phone-6 col-pad-4 col-pc-3" onclick="openImagePreview('images/p8.jpg', 'E-Commerce Platform Build')">
+        <img src="images/p8.jpg" alt="Work 8" loading="lazy">
+        <div>
+          <h3>i'm an image title.</h3>
+        </div>
+      </a>
+
+      <a href="javascript:void(0)" class="card col-phone-6 col-pad-4 col-pc-3" onclick="openImagePreview('images/p9.jpg', 'Creative Architecture Showcase')">
+        <img src="images/p9.jpg" alt="Work 9" loading="lazy">
+        <div>
+          <h3>i'm an image title.</h3>
+        </div>
+      </a>
+
+      <a href="javascript:void(0)" class="card col-phone-6 col-pad-4 col-pc-3" onclick="openImagePreview('images/p10.jpg', 'Interactive Product Interface')">
+        <img src="images/p10.jpg" alt="Work 10" loading="lazy">
+        <div>
+          <h3>i'm an image title.</h3>
+        </div>
+      </a>
+
+      <a href="javascript:void(0)" class="card col-phone-6 col-pad-4 col-pc-3" onclick="openImagePreview('images/p11.jpg', 'Contemporary Photography Portfolio')">
+        <img src="images/p11.jpg" alt="Work 11" loading="lazy">
+        <div>
+          <h3>i'm an image title.</h3>
+        </div>
+      </a>
+
+      <a href="javascript:void(0)" class="card col-phone-6 col-pad-4 col-pc-3" onclick="openImagePreview('images/p12.jpg', 'Luxury Brand Catalog')">
+        <img src="images/p12.jpg" alt="Work 12" loading="lazy">
+        <div>
+          <h3>i'm an image title.</h3>
+        </div>
+      </a>
+    </section>
+
+    <!-- Meet The Folks / Team Section -->
+    <section class="team row" id="team">
+      <a class="label" href="#team">
+        <p>we design great websites and all sorts of interactive products from start to finish</p>
+      </a>
+      <h4>meet the folks:</h4>
+      
+      <section class="member row">
+        <div class="card col-phone-6 col-pad-6 col-pc-3">
+          <img src="images/m1.jpg" alt="Andreas">
+          <h2>andreas</h2>
+          <h3>co founder &amp; developer</h3>
+        </div>
+
+        <div class="card col-phone-6 col-pad-6 col-pc-3">
+          <img src="images/m2.jpg" alt="Matt">
+          <h2>matt</h2>
+          <h3>co founder &amp; creative director</h3>
+        </div>
+
+        <div class="card col-phone-6 col-pad-6 col-pc-3">
+          <img src="images/m3.jpg" alt="Dustin">
+          <h2>dustin</h2>
+          <h3>designer &amp; front end developer</h3>
+        </div>
+
+        <div class="card col-phone-6 col-pad-6 col-pc-3">
+          <img src="images/m4.jpg" alt="Anna">
+          <h2>anna</h2>
+          <h3>designer</h3>
+        </div>
+      </section>
+
+      <a class="contact" href="#contact" onclick="openContactModal(event)">contact us</a>
+    </section>
+
+    <!-- Editorial / About Description Section -->
+    <section class="describe" id="about">
+      <article>
+        <h4>what we do</h4>
+        <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or double click me to add your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I'm a great place for you to tell a story and let your users know a little more about you.</p>
+        <p>This is a great space to write long text about your company and your services. You can use this space to go into a little more detail about your company. Talk about your team and what services you provide. Tell your visitors the story of how you came up with the idea for your business and what makes you different from your competitors. Make your company stand out and show your visitors who you are.</p>
+        
+        <div class="devider">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <h4>how we work</h4>
+        <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or double click me to add your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I'm a great place for you to tell a story and let your users know a little more about you. This is a great space to write long text about your company and your services. You can use this space to go into a little more detail about your company. Talk about your team and what services you provide. Tell your visitors the story of how you came up with the idea for your business and what makes you different from your competitors. Make your company stand out and show your visitors who you are.</p>
+        
+        <div class="devider switch">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <h4 class="gutter">who we are</h4>
+        <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or double click me to add your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I'm a great place for you to tell a story and let your users know a little more about you.</p>
+        <p>This is a great space to write long text about your company and your services.</p>
+        <p>You can use this space to go into a little more detail about your company. Talk about your team and what services you provide. Tell your visitors the story of how you came up with the idea for your business and what makes you different from your competitors. Make your company stand out and show your visitors who you are.</p>
+        
+        <div class="devider">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <h4>what we believe</h4>
+        <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or double click me to add your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I'm a great place for you to tell a story and let your users know a little more about you. This is a great space to write long text about your company and your services. You can use this space to go into a little more detail about your company. Talk about your team and what services you provide.</p>
+        <p>Tell your visitors the story of how you came up with the idea for your business and what makes you different from your competitors. Make your company stand out and show your visitors who you are.</p>
+      </article>
+
+      <a href="#home" class="btn-back-to-top">back to top</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2026 by <span>web folk. proudly </span>created with <a href="https://www.wix.com" target="_blank">wix.com</a>
+  </footer>
+
+  <!-- Interactive Contact Modal -->
+  <div class="modal-overlay" id="contact-modal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeContactModal()">&times;</button>
+      <div class="modal-header">
+        <h3>Contact Us</h3>
+        <p>Drop us a line and let's start crafting something great.</p>
+      </div>
+      <form class="contact-form" onsubmit="handleContactSubmit(event)">
+        <div class="form-group">
+          <input type="text" placeholder="Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <textarea rows="4" placeholder="Your Message..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send Message</button>
+      </form>
     </div>
+  </div>
 
-    <div id="toast-container" class="toast-container"></div>
-    <script src="script.js"></script>
+  <!-- Interactive Image Lightbox -->
+  <div class="lightbox-overlay" id="lightbox-overlay" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <img id="lightbox-img" src="" alt="">
+      <h3 id="lightbox-title"></h3>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
