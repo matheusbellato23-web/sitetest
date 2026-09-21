@@ -1,0 +1,78 @@
+<svg viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg" class="methodology-svg">
+  <defs>
+    <linearGradient id="mGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F2137" />
+      <stop offset="100%" stop-color="#183454" />
+    </linearGradient>
+    <linearGradient id="mAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D85C37" />
+      <stop offset="100%" stop-color="#F0805B" />
+    </linearGradient>
+    <filter id="mGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Architectural Background Grid -->
+  <g opacity="0.18">
+    <line x1="80" y1="60" x2="720" y2="60" stroke="#8EA5BE" stroke-width="1" stroke-dasharray="4 4" />
+    <line x1="80" y1="180" x2="720" y2="180" stroke="#8EA5BE" stroke-width="1" stroke-dasharray="4 4" />
+    <line x1="80" y1="300" x2="720" y2="300" stroke="#8EA5BE" stroke-width="1" stroke-dasharray="4 4" />
+    <line x1="80" y1="420" x2="720" y2="420" stroke="#8EA5BE" stroke-width="1" stroke-dasharray="4 4" />
+    
+    <line x1="180" y1="40" x2="180" y2="440" stroke="#8EA5BE" stroke-width="1" stroke-dasharray="4 4" />
+    <line x1="400" y1="40" x2="400" y2="440" stroke="#8EA5BE" stroke-width="1" stroke-dasharray="4 4" />
+    <line x1="620" y1="40" x2="620" y2="440" stroke="#8EA5BE" stroke-width="1" stroke-dasharray="4 4" />
+  </g>
+
+  <!-- Connecting Orbital Rings -->
+  <circle cx="400" cy="240" r="160" stroke="url(#mAccent)" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.4" />
+  <circle cx="400" cy="240" r="95" stroke="#1E3A5F" stroke-width="2" fill="none" opacity="0.5" />
+
+  <!-- Flow Vector Lines connecting outer nodes to central nucleus -->
+  <path d="M215 135 L345 210" stroke="#D85C37" stroke-width="2" stroke-dasharray="4 4" />
+  <path d="M585 135 L455 210" stroke="#1E3A5F" stroke-width="2" stroke-dasharray="4 4" />
+  <path d="M215 345 L345 270" stroke="#1E3A5F" stroke-width="2" stroke-dasharray="4 4" />
+  <path d="M585 345 L455 270" stroke="#D85C37" stroke-width="2" stroke-dasharray="4 4" />
+
+  <!-- Central Nucleus: Propósito & Valor -->
+  <circle cx="400" cy="240" r="56" fill="url(#mGrad1)" stroke="url(#mAccent)" stroke-width="2.5" filter="url(#mGlow)" />
+  <text x="400" y="234" text-anchor="middle" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-weight="800" font-size="13" letter-spacing="1.5">PROPÓSITO</text>
+  <text x="400" y="252" text-anchor="middle" fill="#D85C37" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" letter-spacing="0.5">&amp; SUSTENTAÇÃO</text>
+
+  <!-- Node 1: Estratégia & M&A (Top Left) -->
+  <g class="framework-node" transform="translate(180, 110)">
+    <circle cx="0" cy="0" r="42" fill="#FFFFFF" stroke="#D85C37" stroke-width="2" />
+    <path d="M-10 -4 L0 -14 L10 -4 L5 -4 L5 10 L-5 10 L-5 -4 Z" fill="#D85C37" />
+    <text x="0" y="62" text-anchor="middle" fill="#0F2137" font-family="'Outfit', sans-serif" font-weight="800" font-size="13">01. ESTRATÉGIA</text>
+    <text x="0" y="78" text-anchor="middle" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11">Conselho &amp; M&amp;A</text>
+  </g>
+
+  <!-- Node 2: Governança & Sucessão (Top Right) -->
+  <g class="framework-node" transform="translate(620, 110)">
+    <circle cx="0" cy="0" r="42" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2" />
+    <circle cx="0" cy="-6" r="8" stroke="#1E3A5F" stroke-width="2" fill="none" />
+    <path d="M-12 12 C-12 5, 12 5, 12 12" stroke="#1E3A5F" stroke-width="2" fill="none" />
+    <text x="0" y="62" text-anchor="middle" fill="#0F2137" font-family="'Outfit', sans-serif" font-weight="800" font-size="13">02. GOVERNANÇA</text>
+    <text x="0" y="78" text-anchor="middle" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11">Sucessão &amp; Liderança</text>
+  </g>
+
+  <!-- Node 3: Cultura & Segurança Psicológica (Bottom Left) -->
+  <g class="framework-node" transform="translate(180, 370)">
+    <circle cx="0" cy="0" r="42" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2" />
+    <path d="M-10 0 C-10 -9, 10 -9, 10 0 C10 9, -10 9, -10 0 Z" stroke="#1E3A5F" stroke-width="2" fill="none" />
+    <circle cx="0" cy="0" r="3.5" fill="#D85C37" />
+    <text x="0" y="62" text-anchor="middle" fill="#0F2137" font-family="'Outfit', sans-serif" font-weight="800" font-size="13">03. CULTURA (FOS)</text>
+    <text x="0" y="78" text-anchor="middle" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11">Segurança Psicológica</text>
+  </g>
+
+  <!-- Node 4: Estrutura & HR Business Partner (Bottom Right) -->
+  <g class="framework-node" transform="translate(620, 370)">
+    <circle cx="0" cy="0" r="42" fill="#FFFFFF" stroke="#D85C37" stroke-width="2" />
+    <rect x="-10" y="-10" width="20" height="20" rx="4" stroke="#D85C37" stroke-width="2" fill="none" />
+    <line x1="-5" y1="0" x2="5" y2="0" stroke="#D85C37" stroke-width="2" />
+    <text x="0" y="62" text-anchor="middle" fill="#0F2137" font-family="'Outfit', sans-serif" font-weight="800" font-size="13">04. GESTÃO &amp; RH</text>
+    <text x="0" y="78" text-anchor="middle" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11">Estrutura &amp; HRBP</text>
+  </g>
+</svg>

@@ -1,0 +1,40 @@
+<svg viewBox="0 0 760 140" fill="none" xmlns="http://www.w3.org/2000/svg" class="timeline-svg">
+  <!-- Baseline track -->
+  <line x1="50" y1="70" x2="710" y2="70" stroke="#2A4365" stroke-width="2" />
+  
+  <!-- Step 1: 2018 -->
+  <g transform="translate(80, 70)">
+    <circle cx="0" cy="0" r="16" fill="#0E1B2C" stroke="#D85C37" stroke-width="2.5" />
+    <circle cx="0" cy="0" r="6" fill="#D85C37" />
+    <text x="0" y="-28" text-anchor="middle" fill="#D85C37" font-family="'Outfit', sans-serif" font-weight="800" font-size="13">2018</text>
+    <text x="0" y="32" text-anchor="middle" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11">Início da Gestão</text>
+    <text x="0" y="47" text-anchor="middle" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">Novo RH Local</text>
+  </g>
+
+  <!-- Step 2: 2020 -->
+  <g transform="translate(280, 70)">
+    <circle cx="0" cy="0" r="14" fill="#0E1B2C" stroke="#64748B" stroke-width="2" />
+    <circle cx="0" cy="0" r="5" fill="#64748B" />
+    <text x="0" y="-28" text-anchor="middle" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-weight="800" font-size="13">2020</text>
+    <text x="0" y="32" text-anchor="middle" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11">Cultura &amp; EVP</text>
+    <text x="0" y="47" text-anchor="middle" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">Perfil do Líder</text>
+  </g>
+
+  <!-- Step 3: 2023 -->
+  <g transform="translate(480, 70)">
+    <circle cx="0" cy="0" r="14" fill="#0E1B2C" stroke="#64748B" stroke-width="2" />
+    <circle cx="0" cy="0" r="5" fill="#64748B" />
+    <text x="0" y="-28" text-anchor="middle" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-weight="800" font-size="13">2023</text>
+    <text x="0" y="32" text-anchor="middle" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11">NPS Recorde</text>
+    <text x="0" y="47" text-anchor="middle" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">92% Satisfação RH</text>
+  </g>
+
+  <!-- Step 4: 2025 -->
+  <g transform="translate(680, 70)">
+    <circle cx="0" cy="0" r="18" fill="#D85C37" stroke="#FFFFFF" stroke-width="2" />
+    <path d="M-5 0 L-1 4 L6 -3" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="0" y="-28" text-anchor="middle" fill="#D85C37" font-family="'Outfit', sans-serif" font-weight="800" font-size="13">2025</text>
+    <text x="0" y="32" text-anchor="middle" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11">Transição &amp; Venda</text>
+    <text x="0" y="47" text-anchor="middle" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">M&amp;A com Sucesso</text>
+  </g>
+</svg>
