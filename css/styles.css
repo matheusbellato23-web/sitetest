@@ -1167,21 +1167,24 @@ ul, ol { list-style: none; }
   color: var(--c-navy);
   line-height: 1.35;
   margin-bottom: 10px;
+  min-height: 2.7em;
 }
 
 .s-desc {
   font-size: 0.8rem;
   color: var(--c-text-2);
   line-height: 1.72;
-  margin-bottom: 16px;
-  flex: 1;
+  margin-bottom: 18px;
+  min-height: 8.6em;
+  flex: 0 0 auto;
 }
 
 .s-list {
   display: flex;
   flex-direction: column;
   gap: 7px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+  flex: 1;
 }
 
 .s-list li {
@@ -2204,6 +2207,7 @@ textarea.finput { resize: vertical; min-height: 96px; }
   .pillar { border-right: none; }
 
   .s-grid { grid-template-columns: 1fr; }
+  .s-title, .s-desc { min-height: 0; }
 
   .nps-row { grid-template-columns: 1fr; }
 
@@ -2220,3 +2224,19 @@ textarea.finput { resize: vertical; min-height: 96px; }
   .ftr-grid { grid-template-columns: 1fr; gap: 32px; }
   .ftr-bottom { flex-direction: column; text-align: center; }
 }
+
+/* ── Executive Scroll Progress & Motion Immersion ── */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--c-terra) 0%, var(--c-gold) 100%);
+  transform-origin: 0% 50%;
+  transform: scaleX(var(--scroll-progress, 0));
+  z-index: 10002;
+  pointer-events: none;
+  will-change: transform;
+}
+

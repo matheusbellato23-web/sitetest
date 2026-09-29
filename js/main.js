@@ -181,4 +181,15 @@ document.addEventListener('DOMContentLoaded', () => {
     window.open('https://wa.me/5511992704444?text=' + text, '_blank');
   });
 
+  /* ── 9. Barra de Progresso de Leitura ───────────────────────────────── */
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress-bar';
+  document.body.appendChild(progressBar);
+  window.addEventListener('scroll', () => {
+    const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const p = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+    progressBar.style.setProperty('--scroll-progress', p.toFixed(4));
+  }, { passive: true });
+
 });
+
