@@ -1620,11 +1620,54 @@ ul, ol { list-style: none; }
   border: 1px solid var(--c-line);
 }
 
-/* Simulator */
+/* Simulator / Diagnóstico */
 .sim-card {
   border: 1px solid var(--c-line);
   background: var(--c-bg);
-  padding: 44px;
+  padding: 40px 44px;
+}
+
+.diag-block {
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--c-line);
+}
+
+.diag-block:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.diag-step-num {
+  color: var(--c-gold);
+  font-weight: 800;
+  margin-right: 4px;
+}
+
+.sim-opts-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.diag-step4-box {
+  background: var(--c-white);
+  border: 1px solid var(--c-line);
+  padding: 24px 28px !important;
+}
+
+.diag-step4-desc {
+  font-size: 0.9rem;
+  color: var(--c-text-2);
+  margin-bottom: 18px;
+  line-height: 1.65;
+}
+
+.diag-user-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 
 .sim-bar {
@@ -1660,10 +1703,10 @@ ul, ol { list-style: none; }
 }
 
 .sim-q {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--c-navy);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   line-height: 1.4;
 }
 
@@ -1671,14 +1714,14 @@ ul, ol { list-style: none; }
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 28px;
+  margin-bottom: 4px;
 }
 
 .sim-opt {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
-  padding: 16px 18px;
+  gap: 12px;
+  padding: 13px 16px;
   border: 1px solid var(--c-line);
   background: var(--c-white);
   cursor: pointer;
@@ -2169,6 +2212,8 @@ textarea.finput { resize: vertical; min-height: 96px; }
   .depoi-grid { grid-template-columns: 1fr; }
 
   .sim-card { padding: 28px 20px; }
+  .sim-opts-grid { grid-template-columns: 1fr !important; }
+  .diag-user-row { grid-template-columns: 1fr; }
 
   .form-card { padding: 32px 20px; }
 

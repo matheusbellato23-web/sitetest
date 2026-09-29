@@ -100,10 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ── 7. Simulador ───────────────────────────────────────────────────── */
-  const steps = document.querySelectorAll('.sim-step');
-  const bars  = [document.getElementById('sp1'), document.getElementById('sp2'), document.getElementById('sp3')];
-  const result = document.getElementById('simResult');
+  /* ── 7. Diagnóstico de Prioridades ──────────────────────────────────── */
   const data = {};
 
   // Option selection
@@ -117,79 +114,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  function goStep(n) {
-    steps.forEach((s, i) => s.classList.toggle('on', i + 1 === n));
-    bars.forEach((b, i) => b.classList.toggle('on', i + 1 <= n));
+  function buildDiagText() {
+    const momento  = data.p1 || 'Não informado';
+    const resRadio = data.p2 || '';
+    const situacao = document.getElementById('diagSituacao')?.value.trim() || '';
+    const resultado = [resRadio, situacao].filter(Boolean).join(' — ') || 'Não informado';
+    const melhorar = document.getElementById('diagMelhorar')?.value.trim() || 'Não informado';
+    const nome     = document.getElementById('diagNome')?.value.trim() || '';
+    const empresa  = document.getElementById('diagEmpresa')?.value.trim() || '';
+
+    return {
+      nome,
+      empresa,
+      subject: 'Solicitação de Diagnóstico Estratégico' + (empresa ? ' — ' + empresa : ''),
+      bodyPlain:
+        'Olá, Alessandra!\n\n' +
+        'Gostaria de receber o diagnóstico de prioridades e agendar um bate-papo.\n\n' +
+        (nome ? 'Nome: ' + nome + '\n' : '') +
+        (empresa ? 'Empresa: ' + empresa + '\n' : '') +
+        '\n1 - Momento atual da empresa:\n' + momento + '\n' +
+        '\n2 - Como estão os resultados:\n' + resultado + '\n' +
+        '\n3 - O que desejo alterar ou melhorar:\n' + melhorar + '\n\n' +
+        'Aguardo retorno para agendarmos uma conversa.',
+      bodyWA:
+        'Olá, Alessandra! Gostaria de receber o diagnóstico de prioridades e agendar um bate-papo.\n\n' +
+        (nome ? '*Nome:* ' + nome + '\n' : '') +
+        (empresa ? '*Empresa:* ' + empresa + '\n' : '') +
+        '*1. Momento atual:* ' + momento + '\n' +
+        '*2. Resultados:* ' + resultado + '\n' +
+        '*3. O que deseja alterar/melhorar:* ' + melhorar
+    };
   }
 
-  function validate(step) {
-    const s = document.querySelector(`.sim-step[data-step="${step}"]`);
-    const checked = s?.querySelector('input:checked');
-    if (!checked) {
-      s?.querySelectorAll('.sim-opt').forEach(o => {
-        o.style.borderColor = 'rgba(184,64,48,0.4)';
-        setTimeout(() => o.style.borderColor = '', 1200);
-      });
-      return false;
-    }
-    return true;
-  }
+  document.getElementById('btnDiagEmail')?.addEventListener('click', () => {
+    const info = buildDiagText();
+    const mailto = 'mailto:contato@pjgestao.com?subject=' +
+      encodeURIComponent(info.subject) +
+      '&body=' + encodeURIComponent(info.bodyPlain);
+    window.location.href = mailto;
+  });
 
-  document.getElementById('sn1')?.addEventListener('click', () => validate(1) && goStep(2));
-  document.getElementById('sp2btn')?.addEventListener('click', () => goStep(1));
-  document.getElementById('sn2')?.addEventListener('click', () => validate(2) && goStep(3));
-  document.getElementById('sp3btn')?.addEventListener('click', () => goStep(2));
-
-  document.getElementById('sfinish')?.addEventListener('click', () => {
-    if (!validate(3)) return;
-    steps.forEach(s => s.classList.remove('on'));
-    bars.forEach(b => b.classList.add('on'));
-    result.classList.add('on');
-
-    let title, desc, bullets;
-
-    if (data.p1 === 'm_and_a' || data.p1 === 'crescimento') {
-      title = 'Prioridade: Transformação Organizacional & M&A';
-      desc = 'Seu momento exige ancoragem cultural rápida para evitar descompasso entre metas de negócio e retenção de talentos-chave.';
-      bullets = [
-        'Alinhamento com Conselho e C-Level dos impactos operacionais',
-        'Plano de comunicação estratégica para estancar ruídos',
-        'Mapeamento de líderes críticos via Insights Discovery',
-        'Estruturação de novos rituais de governança e EVP'
-      ];
-    } else if (data.p1 === 'sucessao') {
-      title = 'Prioridade: Sucessão Executiva & Governança';
-      desc = 'A transferência de comando requer blindagem técnica e emocional para assegurar a continuidade sustentável do negócio.';
-      bullets = [
-        'Análise do estilo decisório do Fundador / CEO atual',
-        'Mapeamento e preparação de sucessores internos e externos',
-        'Metodologia Board Academy aplicada ao processo de transição',
-        'Plano transparente que reduz riscos reputacionais no mercado'
-      ];
-    } else {
-      title = 'Prioridade: Cultura & Segurança Psicológica';
-      desc = 'A produtividade e saúde organizacional dependem de um ambiente onde as pessoas confiem e comuniquem com clareza.';
-      bullets = [
-        'Diagnóstico Cultural Hofstede / Schein — Real vs. Desejada',
-        'Aplicação do FOS (Fearless Organization Scan)',
-        'Capacitação de líderes para feedbacks corajosos e autonomia',
-        'People Analytics para reduzir turnover e absenteísmo'
-      ];
-    }
-
-    document.getElementById('rTitle').textContent = title;
-    document.getElementById('rDesc').textContent = desc;
-    document.getElementById('rBullets').innerHTML = bullets.map(b => `<li>${b}</li>`).join('');
-
-    const msg = encodeURIComponent(
-      'Olá, Alessandra! Realizei o Diagnóstico de Prontidão no site da PJ Gestão.\n\n' +
-      '*Momento:* ' + (data.p1 || '') + '\n' +
-      '*Desafio:* ' + (data.p2 || '') + '\n' +
-      '*Porte:* ' + (data.p3 || '') + '\n' +
-      '*Diagnóstico:* ' + title + '\n\n' +
-      'Gostaria de agendar uma conversa consultiva.'
-    );
-    document.getElementById('rWA').href = 'https://wa.me/5511992704444?text=' + msg;
+  document.getElementById('btnDiagWA')?.addEventListener('click', () => {
+    const info = buildDiagText();
+    window.open('https://wa.me/5511992704444?text=' + encodeURIComponent(info.bodyWA), '_blank');
   });
 
   /* ── 8. Formulário de contato ───────────────────────────────────────── */
