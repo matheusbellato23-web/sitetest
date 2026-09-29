@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const momento  = data.p1 || 'Não informado';
     const resRadio = data.p2 || '';
     const situacao = document.getElementById('diagSituacao')?.value.trim() || '';
-    const resultado = [resRadio, situacao].filter(Boolean).join(' — ') || 'Não informado';
+    const resultado = [resRadio, situacao].filter(Boolean).join(' | ') || 'Não informado';
     const melhorar = document.getElementById('diagMelhorar')?.value.trim() || 'Não informado';
     const nome     = document.getElementById('diagNome')?.value.trim() || '';
     const empresa  = document.getElementById('diagEmpresa')?.value.trim() || '';
@@ -126,15 +126,15 @@ document.addEventListener('DOMContentLoaded', () => {
     return {
       nome,
       empresa,
-      subject: 'Solicitação de Diagnóstico Estratégico' + (empresa ? ' — ' + empresa : ''),
+      subject: 'Solicitação de Diagnóstico Estratégico' + (empresa ? ' | ' + empresa : ''),
       bodyPlain:
         'Olá, Alessandra!\n\n' +
         'Gostaria de receber o diagnóstico de prioridades e agendar um bate-papo.\n\n' +
         (nome ? 'Nome: ' + nome + '\n' : '') +
         (empresa ? 'Empresa: ' + empresa + '\n' : '') +
-        '\n1 - Momento atual da empresa:\n' + momento + '\n' +
-        '\n2 - Como estão os resultados:\n' + resultado + '\n' +
-        '\n3 - O que desejo alterar ou melhorar:\n' + melhorar + '\n\n' +
+        '\n1. Momento atual da empresa:\n' + momento + '\n' +
+        '\n2. Como estão os resultados:\n' + resultado + '\n' +
+        '\n3. O que desejo alterar ou melhorar:\n' + melhorar + '\n\n' +
         'Aguardo retorno para agendarmos uma conversa.',
       bodyWA:
         'Olá, Alessandra! Gostaria de receber o diagnóstico de prioridades e agendar um bate-papo.\n\n' +
